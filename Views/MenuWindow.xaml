@@ -1,0 +1,171 @@
+﻿<Window x:Class="WpfApp1.Views.MenuWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Sistema de Transporte"
+        Width="1200"
+        Height="780"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource BackgroundColor}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="260" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- SIDEBAR -->
+        <Border Grid.Column="0" Background="{StaticResource CardColor}" BorderBrush="{StaticResource BorderColor}" BorderThickness="1">
+            <StackPanel Margin="20">
+                <!-- Header / Logo -->
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="0,4,0,18">
+                    <Ellipse Width="40" Height="40" Fill="{StaticResource AccentGreen}" />
+                    <StackPanel Margin="12,0,0,0">
+                        <TextBlock Text="TRANSPORTE" FontWeight="Bold" Foreground="{StaticResource TextColor}" />
+                        <TextBlock Text="Panel de administración" FontSize="12" Foreground="{StaticResource SecondaryTextColor}" />
+                    </StackPanel>
+                </StackPanel>
+
+                <!-- OPERACIONES -->
+                <TextBlock Text="OPERACIONES" Foreground="{StaticResource SecondaryTextColor}" FontSize="12" FontWeight="Bold" Margin="0,8,0,6" />
+                <StackPanel>
+                    <Button Content="Ingresos" Command="{Binding MostrarIngresosCommand}" Style="{StaticResource OutlineButton}" Margin="0,4" />
+                    <Button Content="Salidas" Command="{Binding MostrarSalidaOperacionCommand}" Style="{StaticResource OutlineButton}" Margin="0,4" />
+                </StackPanel>
+
+                <!-- MANTENIMIENTOS -->
+                <TextBlock Text="MANTENIMIENTOS" Foreground="{StaticResource SecondaryTextColor}" FontSize="12" FontWeight="Bold" Margin="0,14,0,6" />
+                <StackPanel>
+                    <Button Content="Conductores" Command="{Binding MostrarConductoresCommand}" Style="{StaticResource OutlineButton}" Margin="0,4" />
+                    <Button Content="Transportistas" Command="{Binding MostrarTransportistasCommand}" Style="{StaticResource OutlineButton}" Margin="0,4" />
+                    <Button Content="Camiones" Command="{Binding MostrarCamionesCommand}" Style="{StaticResource OutlineButton}" Margin="0,4" />
+                    <Button Content="Productos" Command="{Binding MostrarProductosCommand}" Style="{StaticResource OutlineButton}" Margin="0,4" />
+                </StackPanel>
+
+                <!-- REPORTES -->
+                <TextBlock Text="REPORTES" Foreground="{StaticResource SecondaryTextColor}" FontSize="12" FontWeight="Bold" Margin="0,14,0,6" />
+                <StackPanel>
+                    <Button Content="Ingresos" Command="{Binding MostrarReporteIngresosCommand}" Style="{StaticResource OutlineButton}" Margin="0,4" />
+                    <Button Content="Cargas" Command="{Binding MostrarReporteCargasCommand}" Style="{StaticResource OutlineButton}" Margin="0,4" />
+                    <Button Content="Salidas" Command="{Binding MostrarReporteSalidasCommand}" Style="{StaticResource OutlineButton}" Margin="0,4" />
+                </StackPanel>
+
+                <StackPanel VerticalAlignment="Bottom" Margin="0,24,0,0">
+                    <Button Content="Cerrar sesión" Style="{StaticResource SecondaryButton}" />
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+        <!-- MAIN CONTENT -->
+        <Grid Grid.Column="1" Margin="28">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <!-- HEADER -->
+            <DockPanel Grid.Row="0" LastChildFill="True">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Panel principal" FontSize="24" FontWeight="Bold" Foreground="{StaticResource TextColor}" />
+                    <TextBlock Text="Resumen general del sistema" Foreground="{StaticResource SecondaryTextColor}" />
+                </StackPanel>
+
+                <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Border Background="{StaticResource PrimarySoft}" CornerRadius="20" Padding="8" Margin="0,0,8,0">
+                        <TextBlock Text="🔔" />
+                    </Border>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <Ellipse Width="36" Height="36" Fill="{StaticResource PrimaryColor}" />
+                        <StackPanel Margin="8,0,0,0">
+                            <TextBlock Text="Usuario" FontWeight="Bold" />
+                            <TextBlock Text="Administrador" FontSize="12" Foreground="{StaticResource SecondaryTextColor}" />
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </DockPanel>
+
+            <!-- DASHBOARD -->
+            <ScrollViewer Grid.Row="1">
+                <StackPanel>
+                    <!-- SUMMARY CARDS -->
+                    <UniformGrid Columns="3" Margin="0,12,0,12" HorizontalAlignment="Stretch">
+                        <Border Style="{StaticResource CardStyle}" Margin="8">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                    <Border Width="44" Height="44" Background="{StaticResource PrimarySoft}" CornerRadius="8" HorizontalAlignment="Left">
+                                        <TextBlock Text="👤" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" />
+                                    </Border>
+                                    <StackPanel Margin="12,0,0,0">
+                                        <TextBlock Text="CONDUCTORES" FontWeight="Bold" Foreground="{StaticResource TextColor}" />
+                                        <TextBlock Text="Conductores registrados" Foreground="{StaticResource SecondaryTextColor}" FontSize="12" />
+                                    </StackPanel>
+                                </StackPanel>
+                                <TextBlock Text="{Binding ConductoresCount}" FontSize="28" FontWeight="Bold" Foreground="{StaticResource AccentGreen}" HorizontalAlignment="Right" Margin="0,12,0,0" />
+                            </StackPanel>
+                        </Border>
+
+                        <Border Style="{StaticResource CardStyle}" Margin="8">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Border Width="44" Height="44" Background="{StaticResource PrimarySoft}" CornerRadius="8">
+                                        <TextBlock Text="⬇️" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" />
+                                    </Border>
+                                    <StackPanel Margin="12,0,0,0">
+                                        <TextBlock Text="INGRESOS" FontWeight="Bold" Foreground="{StaticResource TextColor}" />
+                                        <TextBlock Text="Ingresos registrados" Foreground="{StaticResource SecondaryTextColor}" FontSize="12" />
+                                    </StackPanel>
+                                </StackPanel>
+                                <TextBlock Text="{Binding IngresosCount}" FontSize="28" FontWeight="Bold" Foreground="{StaticResource PrimaryColor}" HorizontalAlignment="Right" Margin="0,12,0,0" />
+                            </StackPanel>
+                        </Border>
+
+                        <Border Style="{StaticResource CardStyle}" Margin="8">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Border Width="44" Height="44" Background="{StaticResource PrimarySoft}" CornerRadius="8">
+                                        <TextBlock Text="🚚" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" />
+                                    </Border>
+                                    <StackPanel Margin="12,0,0,0">
+                                        <TextBlock Text="CAMIONES" FontWeight="Bold" Foreground="{StaticResource TextColor}" />
+                                        <TextBlock Text="Camiones registrados" Foreground="{StaticResource SecondaryTextColor}" FontSize="12" />
+                                    </StackPanel>
+                                </StackPanel>
+                                <TextBlock Text="{Binding CamionesCount}" FontSize="28" FontWeight="Bold" Foreground="{StaticResource PrimaryDarkColor}" HorizontalAlignment="Right" Margin="0,12,0,0" />
+                            </StackPanel>
+                        </Border>
+                    </UniformGrid>
+
+                    <!-- QUICK ACTIONS -->
+                    <TextBlock Text="Accesos rápidos" FontSize="18" FontWeight="Bold" Foreground="{StaticResource TextColor}" Margin="8,12,0,8" />
+                    <UniformGrid Columns="3" Margin="0,8,0,24">
+                        <Border Style="{StaticResource CardStyle}" Margin="8" Cursor="Hand">
+                            <StackPanel>
+                                <TextBlock Text="Registrar ingreso" FontWeight="Bold" />
+                                <TextBlock Text="Registrar un nuevo ingreso rápidamente" Foreground="{StaticResource SecondaryTextColor}" FontSize="12" />
+                            </StackPanel>
+                        </Border>
+
+                        <Border Style="{StaticResource CardStyle}" Margin="8" Cursor="Hand">
+                            <StackPanel>
+                                <TextBlock Text="Gestionar conductores" FontWeight="Bold" />
+                                <TextBlock Text="Agregar o editar conductores" Foreground="{StaticResource SecondaryTextColor}" FontSize="12" />
+                            </StackPanel>
+                        </Border>
+
+                        <Border Style="{StaticResource CardStyle}" Margin="8" Cursor="Hand">
+                            <StackPanel>
+                                <TextBlock Text="Ver reporte de ingresos" FontWeight="Bold" />
+                                <TextBlock Text="Consultar y filtrar ingresos" Foreground="{StaticResource SecondaryTextColor}" FontSize="12" />
+                            </StackPanel>
+                        </Border>
+                    </UniformGrid>
+
+                    <!-- DYNAMIC VIEW -->
+                    <Border Background="Transparent">
+                        <ContentControl Content="{Binding VistaActual}" />
+                    </Border>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+
+</Window>

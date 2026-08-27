@@ -1,0 +1,57 @@
+<UserControl x:Class="WpfApp1.Views.SalidaView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <StackPanel>
+        <TextBlock Text="Registro de Salida" FontSize="22" FontWeight="Bold" Foreground="{StaticResource TextColor}" />
+        <TextBlock Text="Registro y control de salidas de vehículos" Foreground="{StaticResource SecondaryTextColor}" Margin="0,6,0,12" />
+
+        <Border Style="{StaticResource CardStyle}">
+            <StackPanel>
+                <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0">
+                    <TextBlock Text="Número Documento" Style="{StaticResource LabelStyle}" />
+                    <TextBox Text="{Binding NumeroDocumento}" Style="{StaticResource InputStyle}" />
+
+                    <TextBlock Text="Placa" Style="{StaticResource LabelStyle}" Margin="0,8,0,0" />
+                    <TextBox Text="{Binding Placa}" Style="{StaticResource InputStyle}" />
+
+                    <TextBlock Text="Turno" Style="{StaticResource LabelStyle}" Margin="0,8,0,0" />
+                    <ComboBox SelectedValue="{Binding Turno}" Style="{StaticResource ComboBoxStyle}">
+                        <ComboBoxItem Content="Mañana" />
+                        <ComboBoxItem Content="Tarde" />
+                        <ComboBoxItem Content="Noche" />
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1">
+                    <TextBlock Text="Nombre Conductor" Style="{StaticResource LabelStyle}" />
+                    <TextBox Text="{Binding Conductor}" Style="{StaticResource InputStyle}" />
+
+                    <TextBlock Text="Cliente" Style="{StaticResource LabelStyle}" Margin="0,8,0,0" />
+                    <TextBox Text="{Binding Cliente}" Style="{StaticResource InputStyle}" />
+
+                    <TextBlock Text="Fecha y Hora" Style="{StaticResource LabelStyle}" Margin="0,8,0,0" />
+                    <DatePicker SelectedDate="{Binding FechaHora}" />
+                </StackPanel>
+                </Grid>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,12,0,0">
+                <StackPanel Width="240">
+                    <TextBlock Text="Peso" Style="{StaticResource LabelStyle}" />
+                    <TextBox Text="{Binding PesoText}" Style="{StaticResource InputStyle}" />
+                </StackPanel>
+                <Button Content="Guardar Salida" Command="{Binding GuardarCommand}" Style="{StaticResource PrimaryButton}" VerticalAlignment="Bottom" Margin="12,0,0,0" />
+            </StackPanel>
+
+                <TextBlock Text="{Binding Mensaje}" Foreground="{StaticResource SuccessColor}" Margin="0,8,0,0" />
+            </StackPanel>
+        </Border>
+    </StackPanel>
+
+</UserControl>

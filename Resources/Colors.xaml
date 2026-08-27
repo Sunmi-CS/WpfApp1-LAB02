@@ -1,0 +1,39 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Palette Verde + Azul + Blanco -->
+    <Color x:Key="GreenPrimaryColor">#16A34A</Color>
+    <Color x:Key="GreenDarkColor">#15803D</Color>
+    <Color x:Key="GreenSoftColor">#DCFCE7</Color>
+
+    <Color x:Key="BluePrimaryColor">#2563EB</Color>
+    <Color x:Key="BlueDarkColor">#1D4ED8</Color>
+    <Color x:Key="BlueSoftColor">#DBEAFE</Color>
+
+    <Color x:Key="BackgroundColorRaw">#F8FAFC</Color>
+    <Color x:Key="WhiteColor">#FFFFFF</Color>
+    <Color x:Key="TextPrimaryColor">#0F172A</Color>
+    <Color x:Key="TextSecondaryColor">#64748B</Color>
+    <Color x:Key="BorderColorRaw">#E2E8F0</Color>
+    <Color x:Key="DangerColorRaw">#DC2626</Color>
+
+    <SolidColorBrush x:Key="PrimaryColor" Color="{StaticResource BluePrimaryColor}"/>
+    <SolidColorBrush x:Key="PrimaryDarkColor" Color="{StaticResource BlueDarkColor}"/>
+    <SolidColorBrush x:Key="PrimarySoft" Color="{StaticResource BlueSoftColor}"/>
+
+    <SolidColorBrush x:Key="AccentGreen" Color="{StaticResource GreenPrimaryColor}"/>
+    <SolidColorBrush x:Key="AccentGreenDark" Color="{StaticResource GreenDarkColor}"/>
+    <SolidColorBrush x:Key="AccentGreenSoft" Color="{StaticResource GreenSoftColor}"/>
+
+    <SolidColorBrush x:Key="BackgroundColor" Color="{StaticResource BackgroundColorRaw}"/>
+    <SolidColorBrush x:Key="CardColor" Color="{StaticResource WhiteColor}"/>
+
+    <SolidColorBrush x:Key="TextColor" Color="{StaticResource TextPrimaryColor}"/>
+    <SolidColorBrush x:Key="SecondaryTextColor" Color="{StaticResource TextSecondaryColor}"/>
+
+    <SolidColorBrush x:Key="BorderColor" Color="{StaticResource BorderColorRaw}"/>
+
+    <SolidColorBrush x:Key="SuccessColor" Color="{StaticResource GreenPrimaryColor}"/>
+    <SolidColorBrush x:Key="DangerColor" Color="{StaticResource DangerColorRaw}"/>
+
+</ResourceDictionary>
